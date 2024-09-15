@@ -7,6 +7,7 @@ class homePage {
       "//a[contains(text(),'Logged in as')]"
     );
     this.accountDeleteButton = page.locator("a[href='/delete_account']");
+    this.productButton = page.locator("a[href='/products']");
   }
 
   async goToHomePage() {
@@ -39,10 +40,24 @@ class homePage {
       timeout: 10000,
     });
     await expect(this.accountDeleteButton).toBeVisible();
+    console.log("Account Delete Button Visible");
   }
   async clickAccountDeleteButton() {
     expect(this.accountDeleteButton).toBeVisible();
     await this.accountDeleteButton.click();
+    console.log("Account Delete Button Clicked");
+  }
+
+  async verifyProductButtonIsVisible() {
+    await this.productButton.waitFor({ state: "visible", timeout: 10000 });
+    await expect(this.productButton).toBeVisible();
+    console.log("Product Button Visible");
+  }
+
+  async clickProductButton() {
+    expect(this.productButton).toBeVisible();
+    await this.productButton.click();
+    console.log("Product Button Clicked");
   }
 }
 
