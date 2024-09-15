@@ -10,6 +10,17 @@ class homePage {
     this.productButton = page.locator("a[href='/products']");
     this.cartButton = page.locator("a[href='/view_cart']").first();
     this.logoutButton = page.locator("a[href='/logout']");
+
+    //footer
+    this.footerSection = page.locator("#footer");
+
+    this.subscriptionLabel = page.locator(".single-widget h2");
+    this.subscriberEmailField = page.locator("#susbscribe_email");
+    this.subscribeEmailSubmitButton = page.locator("#subscribe");
+    this.subscribeSuccessMessage = page.locator("#success-subscribe");
+    this.fullFledgedText = this.page
+      .getByRole("heading")
+      .filter({ hasText: "Full-Fledged practice" });
   }
 
   async goToHomePage() {
@@ -76,6 +87,28 @@ class homePage {
     expect(this.cartButton).toBeVisible();
     await this.cartButton.click();
     console.log("Cart Button Clicked");
+  }
+
+  async verifySubscriptionLabel() {
+    await expect(this.subscriptionLabel).toBeVisible();
+    await expect(this.subscriptionLabel).toHaveText("Subscription");
+    console.log("Subscription Label Verified");
+  }
+  async scrollToBottom() {
+    await this.footerSection.scrollIntoViewIfNeeded();
+    console.log("Scrolled to Bottom");
+  }
+
+  async scrollToFullFledgedText() {
+    await this.fullFledgedText.scrollIntoViewIfNeeded();
+    console.log("Scrolled to Full Fledged Text");
+  }
+  async verifyFullFledgedTextIsVisible() {
+    await Promise.all([
+      await this.fullFledgedText.waitFor({ state: "visible", timeout: 10000 }),
+      expect(this.fullFledgedText).toBeVisible(),
+    ]);
+    console.log("Full Fledged Text Verified");
   }
 }
 
