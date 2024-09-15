@@ -1,9 +1,10 @@
 {
     "registerUser":{
-                    "name":"Aman",
+                    "name":"Talent Sketchers",
                     "email":"TalentSketchers_test+<<increment>>@gmail.com"
                     },
     "loginUser":{
+                "name":"Talent Sketchers",
                 "email":"TalentSketchers_test1@gmail.com",
                 "password":"TalentSketchers@2024"
                 },

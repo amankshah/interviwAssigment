@@ -33,6 +33,13 @@ class homePage {
     console.log(loggedInAsButtonText);
   }
 
+  async verifyAccountDeleteButtonIsVisible() {
+    await this.accountDeleteButton.waitFor({
+      state: "visible",
+      timeout: 10000,
+    });
+    await expect(this.accountDeleteButton).toBeVisible();
+  }
   async clickAccountDeleteButton() {
     expect(this.accountDeleteButton).toBeVisible();
     await this.accountDeleteButton.click();

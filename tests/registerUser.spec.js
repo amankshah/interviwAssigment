@@ -51,8 +51,6 @@ test("Register User", async ({ page }) => {
 
   //wait for network ideal
 
-
-
   await accountCreatedPage.verifyAccountCreatedPage();
   await accountCreatedPage.clickContinueButtonOnAccountCreatedPage();
 
