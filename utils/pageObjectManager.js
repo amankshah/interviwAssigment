@@ -3,6 +3,9 @@ import loginPage from "../pages/loginPage";
 import checkoutPage from "../pages/checkoutPage";
 import cartPage from "../pages/cartPage";
 import productPage from "../pages/productPage";
+import accountInformationPage from "../pages/accountInformationPage";
+import accountDeletedPage from "../pages/accountDeletedPage";
+import accountCreatedPage from "../pages/accountCreatedPage";
 
 class pageObjectManager {
   constructor(page) {
@@ -12,6 +15,9 @@ class pageObjectManager {
     this.checkoutPage = new checkoutPage(this.page);
     this.cartPage = new cartPage(this.page);
     this.productPage = new productPage(this.page);
+    this.accountInformationPage = new accountInformationPage(this.page);
+    this.accountDeletedPage = new accountDeletedPage(this.page);
+    this.accountCreatedPage = new accountCreatedPage(this.page);
   }
 
   getHomePage() {
@@ -32,6 +38,18 @@ class pageObjectManager {
 
   getProductPage() {
     return this.productPage;
+  }
+
+  getAccountInformationPage() {
+    return this.accountInformationPage;
+  }
+
+  getAccountDeletedPage() {
+    return this.accountDeletedPage;
+  }
+
+  getAccountCreatedPage() {
+    return this.accountCreatedPage;
   }
 }
 

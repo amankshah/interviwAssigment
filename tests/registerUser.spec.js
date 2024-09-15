@@ -29,15 +29,36 @@ test("Register User", async ({ page }) => {
   const POManager = new pageObjectManager(page);
   const homePage = POManager.getHomePage();
   const loginPage = POManager.getLoginPage();
+  const accountInformationPage = POManager.getAccountInformationPage();
+  const accountDeletedPage = POManager.getAccountDeletedPage();
+  const accountCreatedPage = POManager.getAccountCreatedPage();
 
   const signupName = testData.registerUser.name;
-  const signupEmail = testData.registerUser.email;
-
+  const signupEmail = testData.registerUser.email.replace(
+    "<<increment>>",
+    Math.floor(Math.random() * 1000)
+  );
+  console.log("Email : " + signupEmail);
   await homePage.goToHomePage();
   await homePage.verifyHomePage();
   await homePage.ClickloginButton();
 
   await loginPage.verifyLoginPage();
   await loginPage.registerUser(signupName, signupEmail);
-  
+
+  await accountInformationPage.verifyAccountInformationPage();
+  await accountInformationPage.FillDataAndCreateAccount();
+
+  //wait for network ideal
+
+
+
+  await accountCreatedPage.verifyAccountCreatedPage();
+  await accountCreatedPage.clickContinueButtonOnAccountCreatedPage();
+
+  // await homePage.verifyLoggedInAsButton(testData.registerUser.name);
+  // await homePage.clickAccountDeleteButton();
+
+  // await accountDeletedPage.verifyAccountDeletedPage();
+  // await accountDeletedPage.clickContinueButtonOnAccountDeletedPage();
 });

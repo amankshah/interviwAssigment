@@ -1,15 +1,17 @@
 {
     "registerUser":{
                     "name":"Aman",
-                    "email":"testopro@gmail.com"
+                    "email":"TalentSketchers_test+<<increment>>@gmail.com"
                     },
     "loginUser":{
-                "email":"testopro@gmail.com",
-                "password":"testopro"
+                "email":"TalentSketchers_test1@gmail.com",
+                "password":"TalentSketchers@2024"
                 },
    
-    "Title": "Mr.", 
-    "Title2": "Mrs",  
+    "Mr": "Mr.", 
+    "Mrs": "Mrs",  
+    "Title": "Mr",
+    "Dob": { "Day": "14", "Month": "April", "Year": "2000" },
     "FirstName": "Aman",
     "LastName": "Shah",
     "Company": "Talent Sketchers",
