@@ -1,5 +1,5 @@
 import homePage from "../pages/homePage";
-import LoginPage from "../pages/loginPage";
+import loginPage from "../pages/loginPage";
 import checkoutPage from "../pages/checkoutPage";
 import cartPage from "../pages/cartPage";
 import productPage from "../pages/productPage";
@@ -7,7 +7,7 @@ import productPage from "../pages/productPage";
 class pageObjectManager {
   constructor(page) {
     this.page = page;
-    this.loginPage = new LoginPage(this.page);
+    this.loginPage = new loginPage(this.page);
     this.homePage = new homePage(this.page);
     this.checkoutPage = new checkoutPage(this.page);
     this.cartPage = new cartPage(this.page);

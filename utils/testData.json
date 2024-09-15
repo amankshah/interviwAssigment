@@ -1,5 +1,25 @@
 {
-    "email":"",
-    "password": ""
-
+    "registerUser":{
+                    "name":"Aman",
+                    "email":"testopro@gmail.com"
+                    },
+    "loginUser":{
+                "email":"testopro@gmail.com",
+                "password":"testopro"
+                },
+   
+    "FirstName": "Aman",
+    "LastName": "Shah",
+    "Company": "Talent Sketchers",
+    "Address": "503, B-Wing, GRANDURA",
+    "Address2": "Opp. IDBI Bank, Baner-Road",
+    "Country": "India",
+    "State": "Maharashtra",
+    "City": "Pune",
+    "ZipCode": "411045",
+    "MobileNumber": "919850005263",
+    "Email": "testopro@gmail.com",
+    "Password": "TalentSketchers@2024",
+    "ConfirmPassword": "TalentSketchers@2024"
+   
 }

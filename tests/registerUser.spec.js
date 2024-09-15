@@ -24,15 +24,20 @@ Test Case 1: Register User
 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button  
 */
 
-
-
-
 test("Register User", async ({ page }) => {
   // Initializing Page Object Manager
   const POManager = new pageObjectManager(page);
   const homePage = POManager.getHomePage();
+  const loginPage = POManager.getLoginPage();
+
+  const signupName = testData.registerUser.name;
+  const signupEmail = testData.registerUser.email;
 
   await homePage.goToHomePage();
   await homePage.verifyHomePage();
   await homePage.ClickloginButton();
+
+  await loginPage.verifyLoginPage();
+  await loginPage.registerUser(signupName, signupEmail);
+  
 });
