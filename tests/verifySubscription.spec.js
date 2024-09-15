@@ -15,8 +15,11 @@ Test Case 11: Verify Subscription in Cart Page
 7. Enter email address in input and click the arrow button  
 8. Verify success message 'You have been successfully subscribed!' is visible  
 */
-test("Verify Subscription in Cart Page", async ({ page }) => {
-  // Initializing Page Object Manager
+test("Verify Subscription in Cart Page", async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  console.log("Executing -- Test Case 11: Verify Subscription in Cart Page");
+
   const POManager = new pageObjectManager(page);
   const homePage = POManager.getHomePage();
   const cartPage = POManager.getCartPage();

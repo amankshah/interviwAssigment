@@ -14,8 +14,12 @@ Test Case 9: Search Product
 8. Verify all the products related to the search are visible 
 */
 
-test("Test Case 9: Search Product", async ({ page }) => {
-  // Initializing Page Object Manager
+test("Test Case 9: Search Product", async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+
+  console.log("Executing - Test Case 9: Search Product");
+
   const POManager = new pageObjectManager(page);
   const homePage = POManager.getHomePage();
   const productPage = POManager.getProductPage();

@@ -15,8 +15,12 @@ Test Case 12: Add Products in Cart
 9. Verify both products are added to the cart  
 10. Verify their prices, quantity, and total price  
 */
-test("Add Products in Cart", async ({ page }) => {
-  // Initializing Page Object Manager
+test("Add Products in Cart", async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+
+  console.log("Executing - Test Case 12: Add Products in Cart");
+
   const POManager = new pageObjectManager(page);
   const homePage = POManager.getHomePage();
   const productPage = POManager.getProductPage();

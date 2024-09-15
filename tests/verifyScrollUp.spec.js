@@ -14,8 +14,10 @@ Test Case 25: Verify Scroll Up using 'Arrow' Button and Scroll Down Functionalit
 */
 
 test("Verify Scroll Up using 'Arrow' Button and Scroll Down Functionality", async ({
-  page,
+  browser,
 }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
   console.log(
     'Executing -- Test Case 25: Verify Scroll Up using "Arrow" Button and Scroll Down Functionality'
   );

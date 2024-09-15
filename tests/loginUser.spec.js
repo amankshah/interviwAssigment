@@ -15,8 +15,17 @@ Test Case 2: Login User with Correct Email and Password
 10. Verify that 'ACCOUNT DELETED!' is visible  
 */
 
-test("Login User with Correct Email and Password", async ({ page }) => {
-  // Initializing Page Object Manager
+test("Login User with Correct Email and Password", async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  console.log(
+    "Executing - Test Case 2: Login User with Correct Email and Password"
+  );
+
+  console.log(
+    "Executing - Test Case 24: Download Invoice after Purchase Order"
+  );
+
   const POManager = new pageObjectManager(page);
   const homePage = POManager.getHomePage();
   const loginPage = POManager.getLoginPage();

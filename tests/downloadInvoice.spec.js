@@ -1,4 +1,4 @@
-const { test, expect } = require("@playwright/test");
+const { test, expect, browser } = require("@playwright/test");
 import LoginPage from "../pages/loginPage";
 import pageObjectManager from "../utils/pageObjectManager";
 const testData = JSON.parse(JSON.stringify(require("../utils/testData.json")));
@@ -35,10 +35,14 @@ Test Case 24: Download Invoice after Purchase Order
 
 */
 
-test("Download Invoice after Purchase Order", async ({ page }) => {
+test("Download Invoice after Purchase Order", async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+
   console.log(
     "Executing - Test Case 24: Download Invoice after Purchase Order"
   );
+  
 
   const POManager = new pageObjectManager(page);
   const DataManipulator = new dataManipulator();
