@@ -6,6 +6,7 @@ import productPage from "../pages/productPage";
 import accountInformationPage from "../pages/accountInformationPage";
 import accountDeletedPage from "../pages/accountDeletedPage";
 import accountCreatedPage from "../pages/accountCreatedPage";
+import paymentPage from "../pages/paymentPage";
 
 class pageObjectManager {
   constructor(page) {
@@ -18,6 +19,7 @@ class pageObjectManager {
     this.accountInformationPage = new accountInformationPage(this.page);
     this.accountDeletedPage = new accountDeletedPage(this.page);
     this.accountCreatedPage = new accountCreatedPage(this.page);
+    this.paymentPage = new paymentPage(this.page);
   }
 
   getHomePage() {
@@ -50,6 +52,10 @@ class pageObjectManager {
 
   getAccountCreatedPage() {
     return this.accountCreatedPage;
+  }
+
+  getPaymentPage() {
+    return this.paymentPage;
   }
 }
 

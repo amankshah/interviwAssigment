@@ -48,6 +48,7 @@ class productPage {
     const addToCartButton = productCard.locator(
       ".overlay-content .add-to-cart"
     );
+    await addToCartButton.waitFor();
     await addToCartButton.click();
     console.log(
       "Clicked on add to cart button on the" + productIndex + "th product"

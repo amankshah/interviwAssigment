@@ -33,8 +33,6 @@ class accountInformationPage {
     this.ZipcodeField = page.locator("#zipcode");
     this.MobileNumberField = page.locator("#mobile_number");
     this.CreateAccountButton = page.locator("button[type='submit']").first();
-
-   
   }
 
   async goto() {
@@ -52,7 +50,7 @@ class accountInformationPage {
     //As this will be taking number of variables so we will fetch the data directly from the testData.json
 
     //Title ----------------------------
-    if (testData.Title == "Mr") {
+    if (testData.accountInformation.Title == "Mr") {
       await this.MrRadioButton.check();
     } else {
       await this.MrsRadioButton.check();
@@ -60,24 +58,31 @@ class accountInformationPage {
 
     //Title End--------------------------------
 
-    await this.PasswordField.fill(testData.Password);
-    await this.days.selectOption({ label: testData.Dob.Day });
-    await this.months.selectOption({ label: testData.Dob.Month });
-    await this.years.selectOption({ label: testData.Dob.Year });
+    await this.PasswordField.fill(testData.accountInformation.Password);
+    await this.days.selectOption({
+      label: testData.accountInformation.Dob.Day,
+    });
+    await this.months.selectOption({
+      label: testData.accountInformation.Dob.Month,
+    });
+    await this.years.selectOption({
+      label: testData.accountInformation.Dob.Year,
+    });
     await this.NewsletterCheckBox.check();
     await this.SpecialOffersCheckBox.check();
-    await this.FirstNameField.fill(testData.FirstName);
-    await this.LastNameField.fill(testData.LastName);
-    await this.CompanyField.fill(testData.Company);
-    await this.AddressField.fill(testData.Address);
-    await this.Address2Field.fill(testData.Address2);
-    await this.CountryField.selectOption({ label: testData.Country });
-    await this.StateField.fill(testData.State);
-    await this.CityField.fill(testData.City);
-    await this.ZipcodeField.fill(testData.ZipCode);
-    await this.MobileNumberField.fill(testData.MobileNumber);
+    await this.FirstNameField.fill(testData.accountInformation.FirstName);
+    await this.LastNameField.fill(testData.accountInformation.LastName);
+    await this.CompanyField.fill(testData.accountInformation.Company);
+    await this.AddressField.fill(testData.accountInformation.Address);
+    await this.Address2Field.fill(testData.accountInformation.Address2);
+    await this.CountryField.selectOption({
+      label: testData.accountInformation.Country,
+    });
+    await this.StateField.fill(testData.accountInformation.State);
+    await this.CityField.fill(testData.accountInformation.City);
+    await this.ZipcodeField.fill(testData.accountInformation.ZipCode);
+    await this.MobileNumberField.fill(testData.accountInformation.MobileNumber);
     await this.CreateAccountButton.click();
   }
-
 }
 export default accountInformationPage;

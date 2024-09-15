@@ -45,6 +45,10 @@ class homePage {
     console.log("Account Delete Button Visible");
   }
   async clickAccountDeleteButton() {
+    await this.accountDeleteButton.waitFor({
+      state: "visible",
+      timeout: 10000,
+    });
     expect(this.accountDeleteButton).toBeVisible();
     await this.accountDeleteButton.click();
     console.log("Account Delete Button Clicked");

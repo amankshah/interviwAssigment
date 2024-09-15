@@ -32,12 +32,14 @@ class LoginPage {
     await this.NameField.type(name);
     await this.SignUpEmailField.type(email);
     await this.SignUpButton.click();
+    console.log("Registered User : " + name + " with Email : " + email);
   }
 
   async loginUser(loginEmail, loginPassword) {
     await this.LoginEmailField.type(loginEmail);
     await this.LoginPasswordField.type(loginPassword);
     await this.LoginButton.click();
+    console.log("Logged In User : " + loginEmail);
   }
 }
 export default LoginPage;

@@ -7,6 +7,8 @@ class cartPage {
     this.subscriberEmailField = page.locator("#susbscribe_email");
     this.subscribeEmailSubmitButton = page.locator("#subscribe");
     this.subscribeSuccessMessage = page.locator("#success-subscribe");
+    this.checkoutButton = page.locator(".check_out");
+    this.registerHyperlink = page.locator(".modal-body a");
   }
 
   async goToCartPage() {
@@ -72,6 +74,15 @@ class cartPage {
 
       expect(productTotalPrice).toBe(expectedTotalPrice);
     }
+  }
+  async clickCheckoutButton() {
+    await this.checkoutButton.click();
+    console.log("Clicked on Checkout Button");
+  }
+
+  async clickRegisterHyperlink() {
+    await this.registerHyperlink.click();
+    console.log("Clicked on Register Hyperlink");
   }
 }
 
