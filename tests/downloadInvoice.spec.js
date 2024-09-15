@@ -103,5 +103,5 @@ test("Download Invoice after Purchase Order", async ({ page }) => {
 
   await homePage.clickAccountDeleteButton();
   await accountDeletedPage.verifyAccountDeletedPage();
-  await accountDeletedPage.clickContinueButton();
+  await accountDeletedPage.clickContinueButtonOnAccountDeletedPage();
 });
