@@ -8,6 +8,8 @@ class homePage {
     );
     this.accountDeleteButton = page.locator("a[href='/delete_account']");
     this.productButton = page.locator("a[href='/products']");
+    this.cartButton = page.locator("a[href='/view_cart']").first();
+    this.logoutButton = page.locator("a[href='/logout']");
   }
 
   async goToHomePage() {
@@ -58,6 +60,18 @@ class homePage {
     expect(this.productButton).toBeVisible();
     await this.productButton.click();
     console.log("Product Button Clicked");
+  }
+
+  async verifyCartButtonIsVisible() {
+    await this.cartButton.waitFor({ state: "visible", timeout: 10000 });
+    await expect(this.cartButton).toBeVisible();
+    console.log("Cart Button Visible");
+  }
+
+  async clickCartButton() {
+    expect(this.cartButton).toBeVisible();
+    await this.cartButton.click();
+    console.log("Cart Button Clicked");
   }
 }
 
