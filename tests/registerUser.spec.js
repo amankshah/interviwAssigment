@@ -56,9 +56,9 @@ test("Register User", async ({ page }) => {
   await accountCreatedPage.verifyAccountCreatedPage();
   await accountCreatedPage.clickContinueButtonOnAccountCreatedPage();
 
-  // await homePage.verifyLoggedInAsButton(testData.registerUser.name);
-  // await homePage.clickAccountDeleteButton();
+  await homePage.verifyLoggedInAsButton(testData.registerUser.name);
+  await homePage.clickAccountDeleteButton();
 
-  // await accountDeletedPage.verifyAccountDeletedPage();
-  // await accountDeletedPage.clickContinueButtonOnAccountDeletedPage();
+  await accountDeletedPage.verifyAccountDeletedPage();
+  await accountDeletedPage.clickContinueButtonOnAccountDeletedPage();
 });
