@@ -7,7 +7,11 @@ class productPage {
     this.searchBarInputFilled = page.locator("#search_product");
     this.searchButton = page.locator("#submit_search");
     this.searchedProductPageLabel = page.locator(".title");
-    this.searchedProductCard = page.locator(".productinfo");
+    this.searchedProductCard = page.locator(".col-sm-4 .single-products");
+    this.productCard = page.locator(".col-sm-4 .single-products");
+
+    this.ModelPopupAddToCartButton = page.locator(".modal-body a");
+    this.ModelContinueShoppingButton = page.locator(".close-modal");
   }
 
   async goToProductPage() {
@@ -34,6 +38,30 @@ class productPage {
     await expect(this.searchedProductCard.first()).toBeVisible();
     const resultCount = await this.searchedProductCard.count();
     console.log("Total Displayed Product :" + resultCount);
+  }
+
+  async hoverOverTheProductToAddToCart(productIndex) {
+    const productCard = this.productCard.nth(productIndex);
+    await productCard.hover();
+    console.log("Hovering over product " + productIndex);
+
+    const addToCartButton = productCard.locator(
+      ".overlay-content .add-to-cart"
+    );
+    await addToCartButton.click();
+    console.log(
+      "Clicked on add to cart button on the" + productIndex + "th product"
+    );
+  }
+
+  async clickModelPopupAddToCartButton() {
+    await this.ModelPopupAddToCartButton.click();
+    console.log("Clicked on Add to Cart button");
+  }
+
+  async clickModelContinueShoppingButton() {
+    await this.ModelContinueShoppingButton.click();
+    console.log("Clicked on Continue Shopping button");
   }
 }
 export default productPage;

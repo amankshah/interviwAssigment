@@ -40,5 +40,39 @@ class cartPage {
         (await this.subscribeSuccessMessage.textContent())
     );
   }
+
+  async verifyProductPriceQuantityAndTotalPrice() {
+    const productInCart = await this.page.locator("tbody tr").count();
+
+    for (let i = 0; i < productInCart; i++) {
+      let productPriceText = await this.page
+        .locator("tbody tr:nth-child(" + (i + 1) + ") .cart_price p")
+        .textContent();
+      let productPrice = parseInt(productPriceText.replace("Rs. ", "").trim());
+      console.log("Product " + i + " Price : " + productPrice);
+
+      let productQuantityText = await this.page
+        .locator("tbody tr:nth-child(" + (i + 1) + ") .cart_quantity button")
+        .textContent();
+      let productQuantity = parseInt(productQuantityText);
+      console.log("Product " + i + " Quantity : " + productQuantity);
+
+      let productTotalPriceText = await this.page
+        .locator("tbody tr:nth-child(" + (i + 1) + ") .cart_total_price")
+        .textContent();
+      let productTotalPrice = parseInt(
+        productTotalPriceText.replace("Rs. ", "").trim()
+      );
+      console.log("Product " + i + " Total Price : " + productTotalPrice);
+
+      let expectedTotalPrice = productPrice * productQuantity;
+      console.log(
+        "Product " + i + " Expected Total Price : " + expectedTotalPrice
+      );
+
+      expect(productTotalPrice).toBe(expectedTotalPrice);
+    }
+  }
 }
+
 export default cartPage;
