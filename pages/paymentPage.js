@@ -39,11 +39,12 @@ class paymentPage {
   }
 
   async verifyWhetherInvoiceDownloaded() {
-    const [download] = await Promise.all([
-      this.page.waitForEvent("download"),
-      this.DownloadInvoiceButton.click(),
-    ]);
     if (process.env.CI) {
+      const [download] = await Promise.all([
+        this.page.waitForEvent("download"),
+        this.DownloadInvoiceButton.click(),
+      ]);
+
       // running in CI/CD
       expect(this.DownloadInvoiceButton).toBeVisible();
       //Ignoring test to check in CI/CD as download is not working in CI/CD
