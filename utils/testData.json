@@ -1,12 +1,12 @@
 {
     "registerUser":{
                     "name":"Aman Shah",
-                    "email":"Aman Shah+<<increment>>@ltim.com"
+                    "email":"AmanShah+<<increment>>@ltim.com"
                     },
     "loginUser":{
-                "name":"Talent Sketchers",
-                "email":"TalentSketchers_test1@gmail.com",
-                "password":"TalentSketchers@2024"
+                "name":"Aman Shah",
+                "email":"AmanShah+839@ltim.com",
+                "password":"aman@2024"
                 },
    "accountInformation":{
             "Mr": "Mr.", 
