@@ -42,7 +42,6 @@ test("Download Invoice after Purchase Order", async ({ browser }) => {
   console.log(
     "Executing - Test Case 24: Download Invoice after Purchase Order"
   );
-  
 
   const POManager = new pageObjectManager(page);
   const DataManipulator = new dataManipulator();
